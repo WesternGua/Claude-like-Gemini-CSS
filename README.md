@@ -1,4 +1,4 @@
-<img width="1710" height="988" alt="image-20260422191252294" src="https://github.com/user-attachments/assets/e6cc17ce-f20a-4f5d-b3f6-2cbe7f9738ab" /># Gemini 仿 Claude 主题
+# Gemini 仿 Claude 主题
 
 一个用于 Stylus 的 CSS 样式，旨在将 Google Gemini 的界面深度复刻为 Claude 的简约纸质风格（衬线字体、暖白配色及沉浸式对话布局）。仅支持浅色模式。
 
