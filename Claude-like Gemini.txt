@@ -1,17 +1,19 @@
-@-moz-document domain("gemini.google.com") {
 /* === Gemini 高仿 Claude：终极重构版 (基于变量覆写) === */
 
 /* --- 1. 全局变量覆写 (彻底斩断渐变和强制统一底色的核心) --- */
-:root, body, .theme-host, .ia-redesign infinite-scroller {
+:root,
+body,
+.theme-host,
+.ia-redesign infinite-scroller {
     color-scheme: light !important;
-    
+
     /* 核心底色：注入 Claude 的极浅暖白 */
     --gem-sys-color--surface: #FAF9F5 !important;
     --gem-sys-color--surface-container: #FAF9F5 !important;
     --gem-sys-color--surface-container-low: #FAF9F5 !important;
     --bard-color-synthetic--chat-window-surface: #FAF9F5 !important;
     --mat-app-background-color: #FAF9F5 !important;
-    
+
     /* 核心文字颜色 */
     --gem-sys-color--on-surface: #1F1E1D !important;
     --mat-app-text-color: #1F1E1D !important;
@@ -22,7 +24,10 @@
 }
 
 /* --- 2. 网页大背景强制兜底 --- */
-body, .chat-app, .main-container, .ae-container {
+body,
+.chat-app,
+.main-container,
+.ae-container {
     background-color: var(--gem-sys-color--surface) !important;
     color: var(--gem-sys-color--on-surface) !important;
 }
@@ -31,7 +36,11 @@ body, .chat-app, .main-container, .ae-container {
 *:not(.google-symbols):not(.mat-icon):not([fonticon]):not(.material-symbols-outlined) {
     font-family: "Lora", "Georgia", "Source Serif Pro", serif !important;
 }
-.google-symbols, .mat-icon, [fonticon], .material-symbols-outlined {
+
+.google-symbols,
+.mat-icon,
+[fonticon],
+.material-symbols-outlined {
     font-family: "Google Symbols" !important;
     font-style: normal !important;
 }
@@ -40,54 +49,59 @@ body, .chat-app, .main-container, .ae-container {
 main {
     box-sizing: border-box !important;
 }
-.conversation-container, 
-.response-container, 
-.inner-container, 
+
+.conversation-container,
+.response-container,
+.inner-container,
 .input-area-container,
 ui-conversation-container {
-    max-width: 950px !important; /* 宽度控制在这个数值最接近 Claude */
+    max-width: 950px !important;
     width: 100% !important;
-    margin: 0 auto !important; 
+    margin: 0 auto !important;
 }
-.message-row, 
+
+.message-row,
 .conversation-items-container {
     max-width: 100% !important;
     margin: 0 !important;
     padding-left: 0 !important;
     padding-right: 0 !important;
 }
+
 .bottom-container {
     background-color: var(--gem-sys-color--surface) !important;
 }
 
 /* --- 5. 彻底斩断残留的旧版渐变代码 (双保险) --- */
-.input-gradient, 
+.input-gradient,
 input-container.input-gradient {
     background: transparent !important;
-    pointer-events: auto !important; 
+    pointer-events: auto !important;
 }
-.top-gradient-container, 
-.scroll-container::after, 
-.scroll-container::before { 
-    display: none !important; 
+
+.top-gradient-container,
+.scroll-container::after,
+.scroll-container::before {
+    display: none !important;
 }
 
 /* --- 6. 用户消息气泡复刻 --- */
 .user-query-bubble-with-background {
-    background-color: #F0F0F0 !important; 
-    border-radius: 16px !important; 
-    padding: 12px 20px !important; 
+    background-color: #F0F0F0 !important;
+    border-radius: 16px !important;
+    padding: 12px 20px !important;
     border: none !important;
     box-shadow: none !important;
-    max-width: 85% !important; 
+    max-width: 85% !important;
     margin-bottom: 24px !important;
-    display: inline-block !important; 
+    display: inline-block !important;
 }
+
 .query-text-line {
     color: #1F1E1D !important;
     font-size: 1.05rem !important;
     line-height: 1.6 !important;
-    white-space: pre-wrap !important; 
+    white-space: pre-wrap !important;
 }
 
 /* --- 7. 模型回复极简无气泡样式 --- */
@@ -97,49 +111,56 @@ input-container.input-gradient {
 }
 
 /* --- 8. 代码块复刻 (彻底去除浅蓝底色) --- */
-.code-block-decoration, 
+.code-block-decoration,
 .code-block-internal-container {
-    background-color: #F3F2EB !important; 
-    color: #66635A !important; 
-    border-bottom: 1px solid #E5E4D9 !important; 
+    background-color: #F3F2EB !important;
+    color: #66635A !important;
+    border-bottom: 1px solid #E5E4D9 !important;
     border-radius: 10px 10px 0 0 !important;
 }
+
 .formatted-code-block-internal-container pre,
 .formatted-code-block-internal-container code.code-container,
 .formatted-code-block-internal-container .animated-opacity {
-    background-color: #F9F8F6 !important; 
-    border-radius: 0 0 10px 10px !important; 
+    background-color: #F9F8F6 !important;
+    border-radius: 0 0 10px 10px !important;
 }
+
 .formatted-code-block-internal-container,
 .code-block-internal-container {
-    background-color: #F9F8F6 !important; 
-    border: 1px solid #E5E4D9 !important; 
-    border-radius: 10px !important; 
-    box-shadow: none !important; 
-    overflow: hidden !important; 
+    background-color: #F9F8F6 !important;
+    border: 1px solid #E5E4D9 !important;
+    border-radius: 10px !important;
+    box-shadow: none !important;
+    overflow: hidden !important;
 }
 
 /* --- 9. 左侧边栏 & 弹出菜单 --- */
-bard-sidenav, .side-navigation-v2 {
+bard-sidenav,
+.side-navigation-v2 {
     background-color: #F2F0E9 !important;
     border-right: 1px solid #E5E4D9 !important;
 }
+
 a.conversation.selected,
 .conversation-items-container .selected,
 [aria-selected="true"] .navigation-item,
 .navigation-item-wrapper[aria-selected="true"],
 [aria-current="true"] {
-    background-color: #EAE8E0 !important; 
-    color: #1F1E1D !important; 
+    background-color: #EAE8E0 !important;
+    color: #1F1E1D !important;
     border-radius: 8px !important;
 }
-.e, .mat-mdc-menu-panel, .menu-inner-container {
+
+.e,
+.mat-mdc-menu-panel,
+.menu-inner-container {
     background-color: var(--gem-sys-color--surface) !important;
-    border: 0px solid #E5E4D9 !important;
+    border: 0 solid #E5E4D9 !important;
 }
 
 /* --- 10. 精准隐藏免责声明 --- */
-[data-test-id="highly-regulated-disclaimer"], 
+[data-test-id="highly-regulated-disclaimer"],
 [data-test-id="footer-privacy-notice-link"],
 .disclaimer-text,
 .footer-container,
@@ -148,4 +169,30 @@ a.conversation.selected,
     height: 0 !important;
     visibility: hidden !important;
 }
+
+/* === 11. 容器透明化 === */
+gemini-app,
+main,
+infinite-scroller,
+.conversation-container,
+.response-container,
+.inner-container,
+.scroll-container,
+.input-area-container,
+.mat-drawer-container,
+mat-sidenav
+.mat-drawer,
+.mat-drawer-inner-container,
+.chat-history,
+.explore-gems-container,
+conversations-list,
+bot-list,
+mat-action-list,
+mat-nav-list,
+.conversation-items-container,
+side-nav-action-button,
+bard-sidenav,
+input-container {
+    background: transparent !important;
+    background-color: transparent !important;
 }
